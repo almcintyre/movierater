@@ -20,6 +20,11 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'react_on_rails'
+gem 'mini_racer'
+gem 'webpacker'
+gem 'faraday'
+gem 'pry'
+gem 'dotenv-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

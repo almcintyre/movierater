@@ -1,0 +1,4 @@
+<h1>Movie Database</h1>
+<% @movie_props.each do |movie| %>
+  <%= react_component("MovieApp", props: {data: movie})%>
+<% end %>
