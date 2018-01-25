@@ -7,10 +7,6 @@ class MovieController < ApplicationController
     @movie_props, @errors = MovieService::Movie.discover()
   end
 
-  def show
-    @movies = MovieService::Movie.search(query)
-  end
-
   private
   def query
     params.fetch(:query, {})

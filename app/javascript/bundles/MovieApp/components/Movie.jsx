@@ -1,7 +1,7 @@
 import React from 'react';
 
-class Movie extends React.Component{
-  render () {
+class Movie extends React.Component {
+  render() {
     var moment = require('moment');
     var movieRow = {
                     display: 'inline-block',
