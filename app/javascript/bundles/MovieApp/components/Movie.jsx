@@ -1,6 +1,14 @@
 import React from 'react';
+import Review from '../components/Review';
 
 class Movie extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      showForm: false
+    }
+  }
+
   render() {
     var moment = require('moment');
     var movieRow = {
@@ -23,6 +31,13 @@ class Movie extends React.Component {
     var title = {paddingTop: '25px'};
     var release = {};
     var releaseDate = moment(this.props.data.release_date).format('MMM DD, YYYY');
+    const showHide = {
+      'display': this.state.showForm ? 'block' : 'none'
+    };
+
+    const showReviewForm = () => {
+      this.setState({showForm: true});
+    };
     return <div style= {movieRow}>
              <div style= {movieImg}>
                <img src = {this.props.data.poster} style = {img}></img>
@@ -30,6 +45,10 @@ class Movie extends React.Component {
              <div style= {movieInfo}>
                <div style= {title}><h2>{this.props.data.title}</h2></div>
                <div style= {release}><b>Release date</b>: {releaseDate}</div>
+               <button onClick={showReviewForm}>Leave a review</button>
+               <div style={showHide}>
+                 <Review movie = {this.props.data}/>
+               </div>
              </div>
             </div>
   }

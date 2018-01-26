@@ -25,6 +25,7 @@ gem 'webpacker'
 gem 'faraday'
 gem 'pry'
 gem 'dotenv-rails'
+gem 'jquery-turbolinks'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
