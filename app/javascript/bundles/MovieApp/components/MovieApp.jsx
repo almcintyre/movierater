@@ -16,6 +16,9 @@ class MovieApp extends React.Component{
             <button onClick = {(e) => this.props.sortMoviesByDate(e.target.value)}>
               Release Date
             </button>
+            <button onClick = {(e) => this.props.sortMoviesByGenre(e.target.value)}>
+              Genre
+            </button>
             <br></br>
             {movies}
           </div>

@@ -5,8 +5,12 @@ class Request
       status == 200 ? response : errors(response)
     end
 
-    def get(id)
-      response, status = get_json(id)
+    def get(id, genre = false)
+      if genre
+        response, status = get_genres(id)
+      else
+        response, status = get_json(id)
+      end
       status == 200 ? response : errors(response)
     end
 
@@ -16,8 +20,13 @@ class Request
     end
 
     def get_json(root_path, query = {})
-      # query_string = query.map{|k,v| "#{k}=#{v}"}.join("&")
       path = query.empty?? "/3#{root_path}&api_key=#{ENV['MOVIE_DB_API_KEY']}" : "/3#{root_path}api_key=#{ENV['MOVIE_DB_API_KEY']}&query=#{query_string}"
+      response = api.get(path)
+      [JSON.parse(response.body), response.status]
+    end
+
+    def get_genres(root_path)
+      path = "/3#{root_path}?api_key=#{ENV['MOVIE_DB_API_KEY']}"
       response = api.get(path)
       [JSON.parse(response.body), response.status]
     end

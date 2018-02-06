@@ -10,7 +10,7 @@ class Review extends React.Component {
     var movie = this.props.movie;
     $.ajax({ url: 'review/new',
              type: 'POST',
-             data: { review: { email: email, comment: comment, movie_id: movie.id }},
+             data: { review: { email: email, comment: comment, movie_id: movie.id, rating: rating }},
              headers: {'X-CSRF-Token': csrfToken},
             success: (response) => {
               console.log('it worked!', response);

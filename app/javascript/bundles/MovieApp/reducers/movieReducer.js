@@ -20,6 +20,15 @@ const data = (state = '', action) => {
                           return 0;
                          });
       return sortedMovies;
+    case 'SORT_BY_GENRE':
+      var sortedMovies = state.slice().sort(function(a,b) {
+                          if ( a.genre < b.genre )
+                            return -1;
+                          if ( a.genre > b.genre )
+                            return 1;
+                          return 0;
+                         });
+      return sortedMovies;             
     default:
       return state;
   }

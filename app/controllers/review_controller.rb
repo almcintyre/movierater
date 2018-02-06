@@ -7,9 +7,6 @@ class ReviewController < ApplicationController
     @review = Review.new
   end
 
-  def edit
-  end
-
   def create
     @review = Review.new(review_params)
     @review.movie_id = @movie.id
@@ -25,7 +22,6 @@ class ReviewController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_review
       @review = Review.find(params[:review][:id])
     end

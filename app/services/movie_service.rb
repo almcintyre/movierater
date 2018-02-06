@@ -5,7 +5,8 @@ module MovieService
                   :title,
                   :genres,
                   :release_date,
-                  :poster
+                  :poster,
+                  :genre_ids
 
     MAX_LIMIT = 10
 
@@ -29,18 +30,16 @@ module MovieService
       self.poster = parse_poster(args)
     end
 
+    def self.genres()
+      response = Request.get("/genre/movie/list", true)
+      genres = response.fetch('genres', []).map{ |genre| Genre.new(genre)}
+      [ genres, response[:errors] ]
+    end
+
     def parse_poster(args)
       poster_path = args["poster_path"]
       poster = "http://image.tmdb.org/t/p/original" + poster_path
     end
 
-    def parse_genre(args)
-      genres = args["genre_ids"]
-      genreArray = Array.new
-      genres.each do |genre|
-        # genreArray << GenreHelper::Genre.where(id: genres[genre]).name
-      end
-      genres = genreArray
-    end
   end
 end
