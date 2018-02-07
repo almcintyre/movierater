@@ -8,8 +8,6 @@ module MovieService
                   :poster,
                   :genre_ids
 
-    MAX_LIMIT = 10
-
     def self.search(query = {})
       response = Request.where('/search/movie?', query)
       movies = response.fetch('results', []).map { |movie| Movie.new(movie) }

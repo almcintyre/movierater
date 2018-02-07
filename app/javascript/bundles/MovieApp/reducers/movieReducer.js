@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux';
+import $ from 'jquery';
+import ReduxThunk from 'redux-thunk';
 
 const data = (state = '', action) => {
   switch (action.type) {
@@ -28,7 +30,7 @@ const data = (state = '', action) => {
                             return 1;
                           return 0;
                          });
-      return sortedMovies;             
+      return sortedMovies;
     default:
       return state;
   }

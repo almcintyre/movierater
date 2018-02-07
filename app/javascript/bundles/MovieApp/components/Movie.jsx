@@ -14,8 +14,15 @@ class Movie extends React.Component {
   }
 
   componentDidMount() {
+    this.fetchReviews(this.props.data);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.fetchReviews(nextProps.data);
+  }
+
+  fetchReviews(movie) {
     var csrfToken = $('meta[name=csrf-token]').attr('content');
-    var movie = this.props.data;
     $.ajax({ url: 'movie/reviews',
            type: 'GET',
            data: { movie: movie},
@@ -25,6 +32,7 @@ class Movie extends React.Component {
           }
       });
   }
+
   render() {
     var reviews = this.state.reviews.map(function (review, index) {
       if (review != undefined) {

@@ -5,8 +5,8 @@ class MovieApp extends React.Component{
 
   render () {
     var movies = this.props.data.map(function(movie, index) {
-      return <Movie key= {index} data={movie}/>;
-    });
+        return <Movie key= {index} data={movie} />
+    }, this);
 
     return <div>
             Sort by:
