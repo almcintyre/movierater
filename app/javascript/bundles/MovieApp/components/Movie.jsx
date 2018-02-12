@@ -36,7 +36,7 @@ class Movie extends React.Component {
   render() {
     var reviews = this.state.reviews.map(function (review, index) {
       if (review != undefined) {
-        return <ShowReview key= {index} data={review}/>
+        return <ShowReview key= {index} data={review} showPoster={false}/>
       }
     });
 

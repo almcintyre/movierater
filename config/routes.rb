@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root 'movie#index'
   post 'review/new', to: 'review#create'
   get 'movie/reviews', to: 'movie#reviews'
+  get 'reviews/show', to: 'review#show'
+  get 'reviews/recent', to: 'review#recent_reviews'
 end

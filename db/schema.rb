@@ -10,15 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180206005920) do
+ActiveRecord::Schema.define(version: 20180212185033) do
 
   create_table "genres", force: :cascade do |t|
     t.string "genre_id"
     t.string "name"
-    t.integer "movie_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["movie_id"], name: "index_genres_on_movie_id"
   end
 
   create_table "movies", force: :cascade do |t|
@@ -38,6 +36,8 @@ ActiveRecord::Schema.define(version: 20180206005920) do
     t.integer "movie_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "poster"
+    t.string "title"
     t.index ["movie_id"], name: "index_reviews_on_movie_id"
   end
 

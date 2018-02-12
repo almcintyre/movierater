@@ -2,6 +2,22 @@ import React from 'react';
 import $ from 'jquery';
 
 class Review extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      isEnabled: false
+    }
+  }
+
+  handleFormChange() {
+    if(this.refs.email.value.length > 0 && this.refs.rating.value.length > 0) {
+      this.setState({isEnabled: true});
+    } else {
+      this.setState({isEnabled: false});
+    }
+  }
+
   handleClick(e) {
     var email = this.refs.email.value;
     var rating = this.refs.rating.value;
@@ -28,11 +44,11 @@ class Review extends React.Component {
                         width: '10px'
                       };
     return <form>
-            <input type = "text" ref= "email" placeholder= "Email"></input><br></br>
-            <input type = "text" ref= "rating" placeholder= "Rating" style={ratingStyle} placeholder="0"></input>
+            <input type = "text" ref= "email" placeholder= "Email" onChange={this.handleFormChange.bind(this)}></input><br></br>
+            <input type = "text" ref= "rating" placeholder= "Rating" style={ratingStyle} placeholder="0" onChange={this.handleFormChange.bind(this)}></input>
             out of 5<br></br>
             <textarea type= "text" ref = "comment" style={reviewStyle}></textarea><br></br>
-            <button onClick={this.handleClick.bind(this)}>Submit</button>
+            <button disabled={!this.state.isEnabled} onClick={this.handleClick.bind(this)}>Submit</button>
            </form>
   }
 }
