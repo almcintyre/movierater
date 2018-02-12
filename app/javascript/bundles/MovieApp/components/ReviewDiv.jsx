@@ -10,8 +10,9 @@ class ReviewDiv extends React.Component {
     var poster = this.props.data.poster;
     var title = this.props.data.title;
     var style = {
-      paddingTop: '10px'
-    };
+                  paddingTop: '10px'
+                };
+    var reviewPaddingLeft = this.props.data.poster ? '95px' : '20px';
     var img = {
                 width: '75px'
               };
@@ -20,14 +21,14 @@ class ReviewDiv extends React.Component {
                     };
     var movieRow = {
                     display: 'inline-block',
-                    width: '60%',
-                    border: '1px solid #b8babc',
+                    width: '100%',
                     marginBottom: '10px',
                     backgroundColor: '#d9dbdd'
                   };
     var reviewText = {
                       paddingTop: '37px',
-                      paddingLeft: '95px'
+                      paddingLeft: reviewPaddingLeft,
+                      paddingBottom: '10px'
                      };
     return <div style= {movieRow}>
              <div style= {movieImg}>

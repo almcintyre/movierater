@@ -43,7 +43,7 @@ class Movie extends React.Component {
     var moment = require('moment');
     var movieRow = {
                     display: 'inline-block',
-                    width: '60%',
+                    width: '100%',
                     border: '1px solid #b8babc',
                     marginBottom: '20px',
                     backgroundColor: '#d9dbdd'

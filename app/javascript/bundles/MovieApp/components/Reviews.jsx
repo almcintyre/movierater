@@ -8,9 +8,13 @@ class Reviews extends React.Component {
     var reviews = this.props.data.map(function(review, index) {
         return <ReviewDiv key= {index} data={review}/>
     }, this);
+
+    var reviewStyle = {
+                        width: '40%'
+                      };
     return <div>
             <div><a href="/">Back</a></div>
-            {reviews}
+            <div style = {reviewStyle}>{reviews}</div>
           </div>
   }
 }
