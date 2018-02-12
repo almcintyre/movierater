@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180212185033) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "genres", force: :cascade do |t|
     t.string "genre_id"
     t.string "name"
@@ -33,7 +36,7 @@ ActiveRecord::Schema.define(version: 20180212185033) do
     t.string "email"
     t.string "comment"
     t.string "rating"
-    t.integer "movie_id"
+    t.bigint "movie_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "poster"
@@ -41,4 +44,5 @@ ActiveRecord::Schema.define(version: 20180212185033) do
     t.index ["movie_id"], name: "index_reviews_on_movie_id"
   end
 
+  add_foreign_key "reviews", "movies"
 end
