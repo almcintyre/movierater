@@ -35,7 +35,7 @@ class MovieApp extends React.Component{
     }, this);
 
     var reviews = this.state.reviews.map(function(review, index) {
-      return <ReviewDiv key = {index} data = {review}/>
+      return <ReviewDiv key = {index} data = {review} showPoster = {false}/>
     }, this);
 
     var reviewsStyle = {

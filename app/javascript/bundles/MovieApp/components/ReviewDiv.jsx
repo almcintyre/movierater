@@ -7,12 +7,12 @@ class ReviewDiv extends React.Component {
     var comment = this.props.data.comment;
     var email = this.props.data.email;
     var rating = this.props.data.rating;
-    var poster = this.props.data.poster;
+    var poster = this.props.showPoster ? this.props.data.poster : '';
     var title = this.props.data.title;
     var style = {
                   paddingTop: '10px'
                 };
-    var reviewPaddingLeft = this.props.data.poster ? '95px' : '20px';
+    var reviewPaddingLeft = this.props.showPoster ? '95px' : '20px';
     var img = {
                 width: '75px'
               };
@@ -32,7 +32,7 @@ class ReviewDiv extends React.Component {
                      };
     return <div style= {movieRow}>
              <div style= {movieImg}>
-               <img src = {this.props.data.poster} style = {img}></img>
+               <img src = {poster} style = {img}></img>
                </div>
             <div style = {reviewText}>
               <div><b>{title}</b></div>

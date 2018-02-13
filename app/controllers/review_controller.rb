@@ -35,6 +35,11 @@ class ReviewController < ApplicationController
         reviews[i].title = Movie.find(reviews[i].movie_id).title
         @reviews << reviews[i]
       end
+    else
+      for i in 0..reviews.length - 1 do
+        reviews[i].title = Movie.find(reviews[i].movie_id).title
+        @reviews << reviews[i]
+      end
     end
     respond_with @reviews, json: @reviews
   end

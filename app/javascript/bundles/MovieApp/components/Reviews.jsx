@@ -6,7 +6,7 @@ class Reviews extends React.Component {
   render() {
 
     var reviews = this.props.data.map(function(review, index) {
-        return <ReviewDiv key= {index} data={review}/>
+        return <ReviewDiv key= {index} data={review} showPoster = {true}/>
     }, this);
 
     var reviewStyle = {
