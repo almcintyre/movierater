@@ -30,9 +30,11 @@ class ReviewController < ApplicationController
   def recent_reviews
     reviews = Review.all
     @reviews = []
-    for i in 0..2 do
-      reviews[i].title = Movie.find(reviews[i].movie_id).title
-      @reviews << reviews[i]
+    if reviews.length >= 3
+      for i in 0..2 do
+        reviews[i].title = Movie.find(reviews[i].movie_id).title
+        @reviews << reviews[i]
+      end
     end
     respond_with @reviews, json: @reviews
   end
