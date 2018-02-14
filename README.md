@@ -1,6 +1,6 @@
 # README
 
-### Clone the repository and update your homebrew
+### Clone the repository
 ```
 git clone https://github.com/almcintyre/movierater.git
 cd movierater/movierater
@@ -45,11 +45,8 @@ brew install postgresql
 brew services start postgresql
 ```
 
-### React on Rails
 
-Install React on Rails.
 ```
-gem 'react_on_rails', '10.0.2'
 bundle install
 ```
 
