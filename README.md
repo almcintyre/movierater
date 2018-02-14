@@ -3,13 +3,6 @@
 ### Clone the repository and update your homebrew
 ```
 git clone https://github.com/almcintyre/movierater.git
-```
-
-```
-brew update
-```
-
-```
 cd movierater/movierater
 ```
 
@@ -29,6 +22,11 @@ rvm list
 gem install rails
 gem install bundler
 
+
+bundle exec rails webpacker:install
+bundle exec rails webpacker:install:react
+
+
 ```
 
 ### Qtwebkit
@@ -36,28 +34,20 @@ gem install bundler
 Install qt5.
 ```
 brew install qt@5.5
-```
-
-```
 echo 'export PATH="$(brew --prefix qt@5.5)/bin:$PATH"' >> ~/.bashrc
 ```
 
 ### Postgresql
 
+Install Postgresql.
 ```
 brew install postgresql
-```
-
-```
 brew services start postgresql
 ```
 
-```
-bundle exec rails webpacker:install
-bundle exec rails webpacker:install:react
-```
-
 ### React on Rails
+
+Install React on Rails.
 ```
 gem 'react_on_rails', '10.0.2'
 bundle install
